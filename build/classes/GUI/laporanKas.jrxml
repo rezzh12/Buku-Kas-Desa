@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0419534e-7ff5-4db8-83c7-93f5acd389e0">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select kas_masuk.id_masuk, kas_masuk.tanggal,kas_masuk.penanggung_jawab, kas_masuk.keterangan, kas_masuk.jumlah jumlah_masuk , kas_keluar.jumlah jumlah_keluar from kas_masuk left join kas_keluar on kas_keluar.id_keluar = kas_masuk.id_masuk where kas_masuk.tanggal between $P{parameter1} and $P{parameter2}]]>
+	</queryString>
+	<field name="id_masuk" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="penanggung_jawab" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_masuk" class="java.lang.Integer"/>
+	<field name="jumlah_keluar" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="144" y="0" width="289" height="33" uuid="4e561a80-5147-4121-862e-ddf4cdbe8eda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="22"/>
+				</textElement>
+				<text><![CDATA[Laporan Rekapitulasi Kas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="173" y="33" width="235" height="23" forecolor="#000000" uuid="1cc63fe5-23e0-4be4-ba3e-7a664093bc02"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kecamatan Karangtengah]]></text>
+			</staticText>
+			<image>
+				<reportElement x="23" y="0" width="105" height="84" uuid="3dcf9f07-7a7e-4d83-950d-9549f7a9fe52"/>
+				<imageExpression><![CDATA["C:\\Users\\TUF GAMING\\Documents\\NetBeansProjects\\Buku Kas Desa\\src\\icon\\Untitled-1.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="214" y="56" width="154" height="28" forecolor="#000000" uuid="ff564451-fcad-455e-a060-97dd61f5c264"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desa Sukajadi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="843274c4-ae0a-4960-9c99-2d42c019664c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="4f794eb2-cc1e-421a-a40f-f1ecc98d0576"/>
+				<text><![CDATA[id_masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="f68d2212-83b4-4805-8629-8c21c98639b3"/>
+				<text><![CDATA[tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="ae8b2e85-71c2-45ec-b0a9-626771e94719"/>
+				<text><![CDATA[penanggung_jawab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="c82179db-fed4-4f98-91ca-c4b574800b77"/>
+				<text><![CDATA[keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="7ae5086a-5096-4534-bc83-db7e19f101f9"/>
+				<text><![CDATA[jumlah_masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="93de9958-082f-42f8-ad8b-758dedd790a2"/>
+				<text><![CDATA[jumlah_keluar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="c52df3e6-a2a4-4692-ac07-273f8587a6ce"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="7c6cc8f5-25f5-46ff-88a9-51858cf795b5"/>
+				<textFieldExpression><![CDATA[$F{id_masuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="3888f440-7a3b-43ec-a2ae-b28cff3c0ae6"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="69582d60-2e0e-4fba-851e-102ba58bd35f"/>
+				<textFieldExpression><![CDATA[$F{penanggung_jawab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="dbda0b3c-fa3a-4bc6-83d6-9c545f005616"/>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="852e1c5d-35be-4f84-9e5a-f56fdae9188b"/>
+				<textFieldExpression><![CDATA[$F{jumlah_masuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="c07da41e-a2d2-4f2e-8686-d9d97cd1587f"/>
+				<textFieldExpression><![CDATA[$F{jumlah_keluar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fb4b411f-a25d-448b-823e-b326e4a75c8e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="6afd8e69-65cb-4b4f-9e9d-3e62494326e6"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="0aa52aed-4dc4-44d9-b998-e39190899c79"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="9dd77927-d0ec-4a4d-9e84-63334f3e877b"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
